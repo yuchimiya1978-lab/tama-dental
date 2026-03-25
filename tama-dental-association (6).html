@@ -1,0 +1,2262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>多摩歯科医会 ｜ 八南歯科医師会多摩支部</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2d4f;
+    --navy-dark: #101d33;
+    --navy-light: #2a4070;
+    --teal: #2a7f6f;
+    --teal-light: #3a9f8a;
+    --teal-pale: #e8f4f1;
+    --gold: #c9840a;        /* イチョウゴールド：市の木 */
+    --cream: #f8f5ef;
+    --white: #ffffff;
+    --text: #2c2c2c;
+    --text-muted: #666;
+    --border: #e0ddd6;
+    --shadow: rgba(26, 45, 79, 0.08);
+  }
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  html { scroll-behavior: smooth; font-size: 18px; }
+  
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    font-weight: 400;
+    line-height: 1.9;
+    font-size: 1rem;
+  }
+
+  /* ───── NAVIGATION ───── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+  
+  .nav-logo-mark {
+    width: 38px; height: 38px;
+    background: var(--navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .nav-logo-mark svg {
+    width: 22px; height: 22px;
+    fill: var(--white);
+  }
+  
+  .nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+  
+  .nav-logo-ja {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.05em;
+  }
+  
+  .nav-logo-sub {
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    list-style: none;
+  }
+  
+  .nav-links a {
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    color: var(--text-muted);
+    border-radius: 6px;
+    transition: all 0.2s;
+    letter-spacing: 0.03em;
+  }
+  
+  .nav-links a:hover {
+    color: var(--navy);
+    background: var(--cream);
+  }
+  
+  .nav-emergency {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: var(--navy);
+    color: var(--white) !important;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  
+  .nav-emergency:hover {
+    background: var(--teal-light) !important;
+    color: var(--white) !important;
+  }
+
+  /* ───── HERO ───── */
+  .hero {
+    height: 100vh;
+    min-height: 640px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--navy);
+  }
+  
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 70% 50%, rgba(58, 166, 101, 0.25) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(201, 132, 10, 0.12) 0%, transparent 50%),
+      linear-gradient(135deg, #134023 0%, #1e5c32 50%, #236638 100%);
+  }
+  
+  /* Decorative circles */
+  .hero-circle-1, .hero-circle-2, .hero-circle-3 {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .hero-circle-1 { width: 600px; height: 600px; right: -100px; top: 50%; transform: translateY(-50%); }
+  .hero-circle-2 { width: 420px; height: 420px; right: 60px; top: 50%; transform: translateY(-50%); }
+  .hero-circle-3 { width: 240px; height: 240px; right: 140px; top: 50%; transform: translateY(-50%); border-color: rgba(58,166,101,0.2); }
+
+  .hero-photo-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  /* Tooth illustration */
+  .hero-tooth {
+    position: absolute;
+    right: 12%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.07;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 100%;
+    padding-top: 64px;
+  }
+  
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--teal-light);
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    margin-bottom: 28px;
+  }
+  
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--teal-light);
+  }
+  
+  .hero-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+  }
+  
+  .hero-title em {
+    font-style: normal;
+    color: var(--gold);
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(15px, 1.8vw, 19px);
+    color: rgba(255,255,255,0.55);
+    line-height: 2;
+    max-width: 500px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+  
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: var(--teal);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    transition: all 0.25s;
+  }
+  
+  .btn-primary:hover {
+    background: var(--teal-light);
+    transform: translateY(-1px);
+  }
+  
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 32px;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    transition: all 0.25s;
+  }
+  
+  .btn-outline:hover {
+    border-color: rgba(255,255,255,0.6);
+    color: var(--white);
+    background: rgba(255,255,255,0.05);
+  }
+  
+  .hero-info-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0; right: 0;
+    background: rgba(255,255,255,0.04);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    z-index: 2;
+  }
+  
+  .hero-info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 40px 0 0;
+    flex: 1;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+  
+  .hero-info-item:first-child { padding-left: 0; }
+  .hero-info-item:last-child { border-right: none; }
+  
+  .hero-info-icon {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 16px;
+  }
+  
+  .hero-info-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.08em;
+    margin-bottom: 2px;
+  }
+  
+  .hero-info-value {
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+  }
+
+  /* ───── SECTION COMMONS ───── */
+  section {
+    padding: 100px 40px;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: var(--teal);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--teal);
+  }
+  
+  .section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 300;
+    color: var(--navy);
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    margin-bottom: 20px;
+  }
+  
+  .section-lead {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 2;
+    max-width: 600px;
+  }
+
+  /* ───── NOTICE BANNER ───── */
+  .notice-banner {
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    z-index: 50;
+  }
+  
+  .notice-label {
+    flex-shrink: 0;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 5px 14px;
+    border-radius: 2px;
+  }
+  
+  .notice-items {
+    display: flex;
+    gap: 32px;
+    overflow: hidden;
+  }
+  
+  .notice-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    font-size: 15px;
+    color: var(--text);
+  }
+  
+  .notice-date {
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+  
+  .notice-link {
+    color: var(--teal);
+    text-decoration: none;
+  }
+  
+  .notice-link:hover { text-decoration: underline; }
+
+  /* ───── ABOUT ───── */
+  .about-section {
+    background: var(--white);
+    padding-top: 120px;
+  }
+  
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+  }
+  
+  .about-visual {
+    position: relative;
+  }
+  
+  .about-visual-card {
+    background: var(--navy);
+    border-radius: 4px;
+    padding: 56px;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .about-visual-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 20%, rgba(58,166,101,0.25) 0%, transparent 60%);
+  }
+  
+  .about-stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .about-stat {
+    background: rgba(255,255,255,0.04);
+    padding: 28px 24px;
+    backdrop-filter: blur(4px);
+  }
+  
+  .about-stat-num {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 40px;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  
+  .about-stat-num span {
+    font-size: 20px;
+    color: rgba(255,255,255,0.5);
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  
+  .about-stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.05em;
+  }
+  
+  .about-visual-accent {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 140px;
+    height: 140px;
+    background: var(--teal-pale);
+    border-radius: 50%;
+    z-index: -1;
+  }
+  
+  .about-text { }
+  
+  .about-body {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 2.1;
+    margin-top: 28px;
+    margin-bottom: 36px;
+  }
+  
+  .about-feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  
+  .about-feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 16px;
+    color: var(--text);
+  }
+  
+  .about-feature-dot {
+    width: 6px; height: 6px;
+    background: var(--teal);
+    border-radius: 50%;
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  /* ───── SERVICES ───── */
+  .services-section {
+    background: var(--cream);
+  }
+  
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 64px;
+    gap: 40px;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  
+  .service-card {
+    background: var(--white);
+    padding: 44px 36px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--teal);
+    transition: width 0.3s;
+  }
+  
+  .service-card:hover::after { width: 100%; }
+  
+  .service-card:hover {
+    background: var(--white);
+    transform: translateY(-4px);
+    z-index: 1;
+    box-shadow: 0 12px 40px var(--shadow);
+  }
+  
+  .service-icon {
+    width: 52px; height: 52px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    font-size: 24px;
+    background: var(--teal-pale);
+  }
+  
+  .service-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 12px;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+  }
+  
+  .service-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.9;
+  }
+  
+  .service-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--teal);
+    letter-spacing: 0.05em;
+  }
+
+  /* ───── EMERGENCY ───── */
+  .emergency-section {
+    background: var(--navy);
+    color: var(--white);
+    padding: 80px 40px;
+  }
+  
+  .emergency-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 60px;
+  }
+  
+  .emergency-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201, 88, 106, 0.2);
+    border: 1px solid rgba(201, 88, 106, 0.4);
+    color: #f0909f;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 6px 14px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+  
+  .emergency-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: #f0909f;
+    border-radius: 50%;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+  
+  .emergency-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  
+  .emergency-desc {
+    font-size: 16px;
+    color: rgba(255,255,255,0.55);
+    line-height: 2;
+    max-width: 520px;
+  }
+  
+  .emergency-cta {
+    flex-shrink: 0;
+    text-align: center;
+  }
+  
+  .emergency-tel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    color: var(--white);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 32px 48px;
+    border-radius: 4px;
+    transition: all 0.25s;
+  }
+  
+  .emergency-tel:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+  }
+  
+  .emergency-tel-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  
+  .emergency-tel-num {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+  }
+  
+  .emergency-tel-info {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 8px;
+  }
+
+  /* ───── HEALTH CHECKS ───── */
+  .health-section {
+    background: var(--white);
+  }
+  
+  .health-layout {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  
+  .health-intro { }
+  
+  .health-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .health-item {
+    display: flex;
+    gap: 20px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+  }
+  
+  .health-item:first-child { border-top: 1px solid var(--border); }
+  
+  .health-item:hover .health-item-title { color: var(--teal); }
+  
+  .health-item-age {
+    flex-shrink: 0;
+    width: 72px;
+    height: 72px;
+    background: var(--cream);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+  }
+  
+  .health-item-age-num {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--navy);
+  }
+  
+  .health-item-age-unit {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  
+  .health-item-body { }
+  
+  .health-item-title {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 6px;
+    transition: color 0.2s;
+  }
+  
+  .health-item-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+  
+  .health-item-tag {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 3px 10px;
+    background: var(--teal-pale);
+    color: var(--teal);
+    font-size: 11px;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ───── NEWS ───── */
+  .news-section {
+    background: var(--cream);
+  }
+  
+  .news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 48px;
+  }
+  
+  .news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .news-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+  }
+  
+  .news-item:first-child { border-top: 1px solid var(--border); }
+  
+  .news-item:hover .news-title { color: var(--teal); }
+  
+  .news-meta {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 110px;
+  }
+  
+  .news-date {
+    font-size: 15px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+  
+  .news-cat {
+    display: inline-block;
+    padding: 3px 10px;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+    background: var(--navy);
+    color: var(--white);
+  }
+  
+  .news-cat.lecture { background: var(--teal); }
+  
+  .news-title {
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.9;
+    transition: color 0.2s;
+  }
+  
+  .view-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    color: var(--teal);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--teal);
+    transition: all 0.2s;
+  }
+  
+  .view-all-link:hover { opacity: 0.7; }
+
+  /* ───── CLINIC FINDER ───── */
+  .finder-section {
+    background: var(--white);
+    padding: 100px 40px;
+  }
+  
+  .finder-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  
+  .finder-visual {
+    background: var(--navy);
+    border-radius: 4px;
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .finder-map-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: rgba(255,255,255,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Simplified map grid lines */
+  .finder-map-grid {
+    position: absolute;
+    inset: 0;
+  }
+  
+  .finder-map-grid line {
+    stroke: rgba(255,255,255,0.05);
+    stroke-width: 1;
+  }
+  
+  .finder-pin {
+    position: absolute;
+    width: 10px; height: 10px;
+    background: var(--teal-light);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(42, 159, 138, 0.2);
+  }
+  
+  .finder-map-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.08em;
+  }
+  
+  .finder-count {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 4px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .finder-count-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 28px;
+  }
+  
+  .finder-btn {
+    display: block;
+    text-align: center;
+    padding: 14px 28px;
+    background: var(--teal);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    transition: background 0.25s;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .finder-btn:hover { background: var(--teal-light); }
+
+  /* ───── FOOTER ───── */
+  footer {
+    background: var(--navy-dark);
+    color: rgba(255,255,255,0.5);
+  }
+  
+  .footer-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 72px 40px 56px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 60px;
+  }
+  
+  .footer-brand { }
+  
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .footer-logo-mark {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .footer-logo-mark svg {
+    width: 20px; height: 20px;
+    fill: rgba(255,255,255,0.5);
+  }
+  
+  .footer-logo-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.06em;
+  }
+  
+  .footer-brand-text {
+    font-size: 15px;
+    line-height: 2;
+    max-width: 280px;
+  }
+  
+  .footer-address {
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 2;
+  }
+  
+  .footer-col-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .footer-links a {
+    font-size: 15px;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  
+  .footer-links a:hover { color: rgba(255,255,255,0.8); }
+  
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+  }
+  
+  .footer-bottom-links {
+    display: flex;
+    gap: 24px;
+  }
+  
+  .footer-bottom-links a {
+    color: rgba(255,255,255,0.3);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  
+  .footer-bottom-links a:hover { color: rgba(255,255,255,0.6); }
+
+  /* ───── 横スクロール防止・タップ改善 ───── */
+  html, body { overflow-x: hidden; max-width: 100%; }
+  img, svg, video { max-width: 100%; }
+  
+  /* タップ領域を十分に確保 */
+  a, button, .nav-links a, .mobile-nav-links li a,
+  .health-item, .news-item, .service-card { -webkit-tap-highlight-color: transparent; }
+  
+  /* スマホでの入力フォーム拡大防止 */
+  input, select, textarea { font-size: 16px !important; }
+  
+  /* about-visual-accent がはみ出すのを防止 */
+  .about-visual { overflow: hidden; }
+  .about-visual-accent { display: none; }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .hero-eyebrow { animation: fadeInUp 0.6s ease both; }
+  .hero-title { animation: fadeInUp 0.6s 0.1s ease both; }
+  .hero-subtitle { animation: fadeInUp 0.6s 0.2s ease both; }
+  .hero-actions { animation: fadeInUp 0.6s 0.3s ease both; }
+
+  /* ───── HAMBURGER MENU ───── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+  .hamburger:hover { background: var(--cream); }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--navy);
+    border-radius: 2px;
+    transition: all 0.3s;
+    transform-origin: center;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Mobile drawer */
+  .mobile-drawer {
+    display: none;
+    position: fixed;
+    top: 64px; left: 0; right: 0; bottom: 0;
+    background: var(--white);
+    z-index: 99;
+    overflow-y: auto;
+    padding: 24px 24px 40px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+  .mobile-drawer.open { transform: translateX(0); }
+
+  .mobile-nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 24px;
+  }
+  .mobile-nav-links li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    font-size: 16px;
+    color: var(--text);
+    font-weight: 400;
+    letter-spacing: 0.03em;
+  }
+  .mobile-nav-links li a::after { content: '›'; color: var(--text-muted); font-size: 20px; }
+  .mobile-emergency-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px;
+    background: var(--navy);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+  }
+  .mobile-tel-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 20px;
+    background: var(--cream);
+    border-radius: 8px;
+    text-decoration: none;
+  }
+  .mobile-tel-label { font-size: 12px; color: var(--text-muted); }
+  .mobile-tel-num { font-size: 22px; font-weight: 500; color: var(--navy); letter-spacing: 0.05em; }
+
+  /* ───── RESPONSIVE TABLET ───── */
+  @media (max-width: 900px) {
+    section { padding: 64px 24px; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .mobile-drawer { display: block; }
+    .hero-content { padding: 0 24px; padding-top: 64px; }
+    .hero-info-bar { display: none; }
+    .about-layout, .finder-layout { grid-template-columns: 1fr; gap: 48px; }
+    .services-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+    .health-layout { grid-template-columns: 1fr; }
+    .emergency-inner { grid-template-columns: 1fr; gap: 32px; }
+    .footer-main { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .hero-circle-1, .hero-circle-2, .hero-circle-3 { display: none; }
+    .services-header { flex-direction: column; align-items: flex-start; }
+    .notice-banner { padding: 12px 20px; }
+    .news-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .school-layout { grid-template-columns: 1fr !important; gap: 36px !important; }
+  }
+
+  /* ───── RESPONSIVE MOBILE ───── */
+  @media (max-width: 600px) {
+    /* ベース */
+    section { padding: 48px 16px; }
+    .container { padding-left: 16px; padding-right: 16px; }
+    nav { padding: 0 16px; height: 56px; }
+    .mobile-drawer { top: 56px; }
+
+    /* お知らせバナー */
+    .notice-banner { padding: 10px 16px; flex-wrap: wrap; gap: 8px; margin-top: 56px; }
+    .notice-items { overflow: hidden; }
+    .notice-item { white-space: normal; font-size: 14px; }
+
+    /* ヒーロー */
+    .hero { min-height: 100svh; }
+    .hero-content { padding: 0 16px; padding-top: 56px; }
+    .hero-eyebrow { font-size: 11px; margin-bottom: 16px; }
+    .hero-title { font-size: 28px; line-height: 1.5; margin-bottom: 14px; }
+    .hero-subtitle { font-size: 15px; margin-bottom: 32px; line-height: 1.9; }
+    .hero-actions { flex-direction: column; align-items: stretch; gap: 12px; }
+    .btn-primary, .btn-outline {
+      justify-content: center;
+      padding: 16px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    /* About */
+    .about-layout { gap: 36px; }
+    .about-stat-grid { grid-template-columns: 1fr 1fr; }
+    .about-visual-card { padding: 24px 20px; }
+    .about-stat { padding: 20px 16px; }
+    .about-stat-num { font-size: 28px; }
+    .about-body { font-size: 15px; }
+    .about-feature-item { font-size: 15px; }
+
+    /* Services */
+    .services-grid { grid-template-columns: 1fr; gap: 2px; }
+    .service-card { padding: 28px 20px; }
+    .service-title { font-size: 17px; }
+    .service-desc { font-size: 15px; }
+    .section-title { font-size: 26px; }
+    .services-header { gap: 12px; }
+
+    /* Emergency */
+    .emergency-section { padding: 48px 16px; }
+    .emergency-inner { gap: 28px; }
+    .emergency-title { font-size: 22px; }
+    .emergency-desc { font-size: 15px; line-height: 2; }
+    .emergency-tel { padding: 24px 24px; width: 100%; }
+    .emergency-tel-num { font-size: 28px; }
+    .emergency-badge { font-size: 12px; }
+
+    /* Health */
+    .health-layout { gap: 32px; }
+    .health-item { gap: 14px; padding: 20px 0; }
+    .health-item-age { width: 64px; height: 64px; flex-shrink: 0; }
+    .health-item-age-num { font-size: 13px; }
+    .health-item-title { font-size: 16px; }
+    .health-item-desc { font-size: 14px; }
+    .health-item-tag { font-size: 12px; }
+
+    /* News */
+    .news-item { flex-direction: column; gap: 8px; padding: 20px 0; }
+    .news-meta { flex-direction: row; align-items: center; gap: 10px; min-width: unset; }
+    .news-date { font-size: 13px; }
+    .news-title { font-size: 15px; }
+    .news-cat { font-size: 12px; }
+
+    /* Clinics directory */
+    .clinics-section { padding-top: 56px !important; }
+    .clinics-header-inner { padding: 0 16px !important; }
+    .clinics-title-row { flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 24px; }
+    .clinics-contact-info { font-size: 13px; text-align: left !important; }
+    .clinics-contact-info strong { font-size: 15px; }
+    .clinic-filter-bar { padding: 14px 16px; top: 56px; }
+    .clinic-filter-inner { gap: 8px; }
+    .clinic-filter-inner input { font-size: 16px; }
+    .clinic-filter-inner select { font-size: 15px; width: 100%; min-width: unset; }
+    .clinic-kana-inner { padding: 0 16px !important; margin-top: 10px; }
+    .clinic-grid-inner { padding: 24px 16px 64px !important; }
+    #clinic-grid { grid-template-columns: 1fr !important; gap: 12px; }
+    .clinic-card { padding: 20px 16px; }
+    .clinic-name { font-size: 17px; }
+    .clinic-tel-link { font-size: 18px; padding: 12px 16px; }
+    .kana-btn { padding: 8px 12px; font-size: 15px; }
+
+    /* School */
+    #school { padding: 48px 16px !important; }
+    .school-layout { grid-template-columns: 1fr !important; gap: 28px !important; }
+
+    /* Footer */
+    .footer-main { grid-template-columns: 1fr; gap: 28px; padding: 40px 16px 28px; }
+    .footer-brand-text { max-width: 100%; font-size: 15px; }
+    .footer-address { font-size: 14px; }
+    .footer-bottom { flex-direction: column; gap: 10px; text-align: center; padding: 14px 16px; font-size: 13px; }
+    .footer-bottom-links { flex-wrap: wrap; justify-content: center; gap: 14px; }
+
+    /* Floating emergency button */
+    .mobile-fab { display: flex !important; font-size: 14px; padding: 13px 18px; bottom: 16px; right: 12px; }
+  }
+
+  /* ── クラス追加：clinics 新レイアウト ── */
+  .clinics-header-inner { padding: 0 40px; }
+  .clinics-title-row { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; gap: 24px; flex-wrap: wrap; }
+  .clinics-contact-info { font-size: 15px; color: var(--text-muted); line-height: 1.8; text-align: right; }
+  .clinics-contact-info strong { color: var(--navy); font-size: 16px; display: block; }
+  .clinic-filter-bar { background: var(--cream); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 40px; position: sticky; top: 56px; z-index: 30; }
+  .clinic-filter-inner { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .clinic-kana-inner { padding: 0; margin-top: 14px; }
+  .clinic-grid-inner { padding: 40px 40px 100px; }
+  .school-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+
+  .school-section { background: var(--teal-pale); padding: 80px 40px; }
+  .school-sakura { background: var(--sakura-pale) !important; }
+  @media (max-width: 900px) { .school-section { padding: 64px 24px; } }
+  @media (max-width: 600px) { .school-section { padding: 48px 16px !important; } }
+
+  /* Floating emergency button */
+  .mobile-fab {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 16px;
+    z-index: 200;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 20px;
+    background: #c9586a;
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: 0 4px 20px rgba(201, 88, 106, 0.4);
+    letter-spacing: 0.04em;
+    animation: fabPop 0.4s 1s ease both;
+  }
+  @keyframes fabPop {
+    from { opacity: 0; transform: scale(0.8) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <!-- Simplified tooth shape -->
+        <path d="M12 2C9 2 7 4 7 6.5c0 1 .3 2 .5 2.5L6 18c-.2 1.5.8 3 2 3s2-1 2.5-2.5L12 16l1.5 2.5C14 20 15 21 16 21s2.2-1.5 2-3l-1.5-9C16.7 8.5 17 7.5 17 6.5 17 4 15 2 12 2z"/>
+      </svg>
+    </div>
+    <div class="nav-logo-text">
+      <span class="nav-logo-ja">多摩歯科医会</span>
+      <span class="nav-logo-sub">八南歯科医師会多摩支部</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">会について</a></li>
+    <li><a href="#services">事業内容</a></li>
+    <li><a href="#health">歯科健診</a></li>
+    <li><a href="#school">学校歯科</a></li>
+    <li><a href="#clinics">診療所案内</a></li>
+    <li><a href="#news">お知らせ</a></li>
+    <li><a href="#emergency" class="nav-emergency">
+      <span>&#9872;</span> 休日応急診療
+    </a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="mobile-drawer" id="mobile-drawer">
+  <a href="#emergency" class="mobile-emergency-btn" onclick="closeDrawer()">
+    🚨 休日応急歯科診療（042-376-8009）
+  </a>
+  <ul class="mobile-nav-links">
+    <li><a href="#about" onclick="closeDrawer()">多摩歯科医会について</a></li>
+    <li><a href="#services" onclick="closeDrawer()">事業内容</a></li>
+    <li><a href="#health" onclick="closeDrawer()">歯科健診・検診</a></li>
+    <li><a href="#school" onclick="closeDrawer()">学校歯科保健</a></li>
+    <li><a href="#clinics" onclick="closeDrawer()">診療所案内</a></li>
+    <li><a href="#news" onclick="closeDrawer()">お知らせ</a></li>
+  </ul>
+  <a href="tel:0423768009" class="mobile-tel-card">
+    <span class="mobile-tel-label">休日応急歯科診療所（受診前に要電話）</span>
+    <span class="mobile-tel-num">📞 042-376-8009</span>
+  </a>
+</div>
+
+<!-- Floating Emergency Button (mobile only) -->
+<a href="#emergency" class="mobile-fab">🚨 休日応急診療</a>
+
+<!-- Notice Banner -->
+<div class="notice-banner" id="notice-banner" style="margin-top:64px;">
+  <span class="notice-label">お知らせ</span>
+  <div class="notice-items">
+    <div class="notice-item">
+      <span class="notice-date">2025.05.21</span>
+      <a href="#" class="notice-link">2025年度 お口の健幸講座「身元確認につながる歯の役割」（6月8日開催）のご案内</a>
+    </div>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <!-- 現サイト画像オーバーレイ -->
+  <div class="hero-photo-overlay">
+    <img src="https://www.tama-da.org/images/main-up.jpg" 
+         alt="多摩歯科医会" 
+         onerror="this.parentElement.style.display='none'"
+         style="width:100%;height:100%;object-fit:cover;opacity:0.18;">
+  </div>
+  <div class="hero-circle-1"></div>
+  <div class="hero-circle-2"></div>
+  <div class="hero-circle-3"></div>
+  
+  <div class="hero-content">
+    <div class="hero-eyebrow">TAMA DENTAL ASSOCIATION</div>
+    <h1 class="hero-title">
+      多摩市民の<em>歯と口の健康</em>を<br>
+      地域全体で守る
+    </h1>
+    <p class="hero-subtitle">
+      多摩歯科医会は、多摩市内で活動する歯科医師57名が集い、
+      地域医療・歯科保健の向上に取り組む団体です。
+      休日応急診療から学校歯科まで、生涯を通じたお口の健康を支えます。
+    </p>
+    <div class="hero-actions">
+      <a href="#clinics" class="btn-primary">
+        <span>&#128197;</span> 診療所を探す
+      </a>
+      <a href="#emergency" class="btn-outline">
+        休日応急診療について →
+      </a>
+    </div>
+  </div>
+  
+  <div class="hero-info-bar">
+    <div class="container" style="display:flex; gap:0; width:100%; max-width:1200px; margin:0 auto;">
+      <div class="hero-info-item" style="padding-left:0;">
+        <div class="hero-info-icon">📍</div>
+        <div>
+          <div class="hero-info-label">所在地</div>
+          <div class="hero-info-value">多摩市関戸4-19-5 多摩市立健康センター内</div>
+        </div>
+      </div>
+      <div class="hero-info-item" style="padding-left:40px;">
+        <div class="hero-info-icon">📞</div>
+        <div>
+          <div class="hero-info-label">連絡先（八南歯科医師会）</div>
+          <div class="hero-info-value">042-635-8463</div>
+        </div>
+      </div>
+      <div class="hero-info-item" style="padding-left:40px; border-right:none;">
+        <div class="hero-info-icon">🏥</div>
+        <div>
+          <div class="hero-info-label">休日応急歯科診療</div>
+          <div class="hero-info-value">042-376-8009（受診前に要電話）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-layout">
+      <div class="about-visual">
+        <!-- 現サイトのメインビジュアル画像 -->
+        <div class="about-site-photo">
+          <img src="https://www.tama-da.org/images/main-up.jpg"
+               alt="多摩歯科医会"
+               onerror="this.closest('.about-site-photo').style.display='none'"
+               style="width:100%; height:220px; object-fit:cover; display:block; border-radius:8px 8px 0 0;">
+        </div>
+        <div class="about-visual-card" style="border-radius:0 0 4px 4px; margin-top:0;">
+          <div class="about-visual-bg"></div>
+          <div class="about-stat-grid">
+            <div class="about-stat">
+              <div class="about-stat-num">57<span>名</span></div>
+              <div class="about-stat-label">会員歯科医師数</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-num">50<span>年以上</span></div>
+              <div class="about-stat-label">地域医療への貢献</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-num">6<span>種</span></div>
+              <div class="about-stat-label">健診・検診事業</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-num">365<span>日</span></div>
+              <div class="about-stat-label">地域歯科保健活動</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual-accent"></div>
+      </div>
+      <div class="about-text">
+        <div class="section-eyebrow">私たちについて</div>
+        <h2 class="section-title">多摩市民の<br>健康寿命を支える</h2>
+        <p class="about-body">
+          多摩歯科医会（八南歯科医師会多摩支部）は、多摩市内で歯科医院を開業する歯科医師が集い、日々の診療にとどまらず、地域の歯科保健・地域医療の向上に尽力しています。
+        </p>
+        <p class="about-body" style="margin-top:-20px;">
+          歯と口の健康は全身の健康と深く結びついています。むし歯・歯周病の予防から、オーラルフレイル対策、障害者歯科、訪問歯科まで、生涯にわたる幅広い歯科医療を地域で支えています。
+        </p>
+        <ul class="about-feature-list">
+          <li class="about-feature-item"><span class="about-feature-dot"></span>多摩市・医師会・薬剤師会・ケアマネ連合会等との多職種連携</li>
+          <li class="about-feature-item"><span class="about-feature-dot"></span>障害者・高齢者の歯科診療への対応</li>
+          <li class="about-feature-item"><span class="about-feature-dot"></span>学校歯科医会・教育委員会との協働</li>
+          <li class="about-feature-item"><span class="about-feature-dot"></span>市民向け公開講座「お口の健幸講座」の定期開催</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="services-header">
+      <div>
+        <div class="section-eyebrow">事業内容</div>
+        <h2 class="section-title">多摩歯科医会の<br>主な活動</h2>
+      </div>
+      <p class="section-lead" style="max-width:320px;">
+        地域全体の歯科保健向上を目指して、多彩な事業を展開しています。
+      </p>
+    </div>
+    <div class="services-grid">
+      <a href="#emergency" class="service-card">
+        <div class="service-icon">🚨</div>
+        <div class="service-title">休日応急歯科診療</div>
+        <p class="service-desc">
+          日曜・祝祭日・年末年始に、多摩市立健康センター1Fにて応急歯科診療を実施。突然の歯の痛みにも対応します。
+        </p>
+        <div class="service-arrow">詳細を見る →</div>
+      </a>
+      <a href="#health" class="service-card">
+        <div class="service-icon">🔍</div>
+        <div class="service-title">歯周病検診・健康診査</div>
+        <p class="service-desc">
+          30・40・50・60・70歳を対象とした歯周病検診や、76歳以上を対象とした後期高齢者歯科健康診査を無料で実施。
+        </p>
+        <div class="service-arrow">詳細を見る →</div>
+      </a>
+      <a href="#school" class="service-card">
+        <div class="service-icon">🏫</div>
+        <div class="service-title">学校歯科保健</div>
+        <p class="service-desc">
+          多摩市の小中学校に学校歯科医を派遣し、健診・保健指導を実施。図画・ポスターコンクールなど啓発活動も行います。
+        </p>
+        <div class="service-arrow">詳細を見る →</div>
+      </a>
+      <a href="#" class="service-card">
+        <div class="service-icon">🧑‍⚕️</div>
+        <div class="service-title">障害者（児）歯科診療</div>
+        <p class="service-desc">
+          一般の歯科医院では対応が難しい、障害をお持ちの方への専門的な歯科診療を、八南歯科医師会と連携して提供。
+        </p>
+        <div class="service-arrow">詳細を見る →</div>
+      </a>
+      <a href="#" class="service-card">
+        <div class="service-icon">📢</div>
+        <div class="service-title">お口の健幸講座</div>
+        <p class="service-desc">
+          毎年、市民向けの公開講座と市長を交えたシンポジウムを開催。オーラルフレイル・健康寿命などをテーマに啓発。
+        </p>
+        <div class="service-arrow">詳細を見る →</div>
+      </a>
+      <a href="#" class="service-card">
+        <div class="service-icon">🏠</div>
+        <div class="service-title">在宅・訪問歯科医療</div>
+        <p class="service-desc">
+          通院困難な高齢者・障害者の方のご自宅や施設へ歯科医師が訪問し、口腔ケア・歯科治療を行います。
+        </p>
+        <div class="service-arrow">詳細を見る →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Emergency -->
+<section class="emergency-section" id="emergency">
+  <div class="emergency-inner">
+    <div>
+      <div class="emergency-badge">緊急時はこちら</div>
+      <h2 class="emergency-title">
+        休日・年末年始の<br>突然の歯の痛みに
+      </h2>
+      <p class="emergency-desc">
+        日曜日・祝祭日・年末年始（12月29日〜1月3日）に、多摩市立健康センター1Fで休日応急歯科診療を行っています。<br><br>
+        診療時間：午前9時〜12時、午後1時〜4時（最終受付）<br>
+        ※ 来院前に必ずお電話をお願いします。保険証をご持参ください。<br>
+        ※ 応急処置のみ対応。継続的な治療は行いません。
+      </p>
+    </div>
+    <div class="emergency-cta">
+      <a href="tel:0423768009" class="emergency-tel">
+        <div class="emergency-tel-label">休日応急歯科診療所</div>
+        <div class="emergency-tel-num">042-376-8009</div>
+        <div class="emergency-tel-info">受診前に必ずお電話ください</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Health Checks -->
+<section class="health-section" id="health">
+  <div class="container">
+    <div class="health-layout">
+      <div class="health-intro">
+        <div class="section-eyebrow">歯科健診・検診</div>
+        <h2 class="section-title">各年代に応じた<br>歯科健康診査</h2>
+        <p class="section-lead" style="margin-top:20px;">
+          多摩歯科医会では、ライフステージに合わせた歯科健診・検診事業を実施しています。対象年齢の方は、登録医療機関で受診できます。
+        </p>
+        <div style="margin-top:36px; padding:24px; background:var(--cream); border-radius:4px;">
+          <div style="font-size:12px; color:var(--text-muted); letter-spacing:0.05em; margin-bottom:10px;">受診方法</div>
+          <div style="font-size:13px; line-height:1.9; color:var(--text);">
+            多摩歯科医会の会員で、各事業への協力を登録した医院でのみ受診できます。かかりつけ医にご相談いただくか、多摩市健康推進課（042-376-9149）へお問い合わせください。
+          </div>
+        </div>
+      </div>
+      <ul class="health-list">
+        <li class="health-item">
+          <div class="health-item-age">
+            <div class="health-item-age-num">30〜70</div>
+            <div class="health-item-age-unit">歳</div>
+          </div>
+          <div class="health-item-body">
+            <div class="health-item-title">歯周病検診</div>
+            <p class="health-item-desc">30・40・50・60・70歳の方を対象に歯周病の診査を実施。登録医療機関にて無料で受診できます。</p>
+            <span class="health-item-tag">無料</span>
+          </div>
+        </li>
+        <li class="health-item">
+          <div class="health-item-age">
+            <div class="health-item-age-num">76〜86</div>
+            <div class="health-item-age-unit">歳</div>
+          </div>
+          <div class="health-item-body">
+            <div class="health-item-title">後期高齢者歯科健康診査</div>
+            <p class="health-item-desc">76・78・80・82・84・86歳の後期高齢者を対象に、口腔機能評価を含めた歯科健康診査を実施。</p>
+            <span class="health-item-tag">無料</span>
+          </div>
+        </li>
+        <li class="health-item">
+          <div class="health-item-age">
+            <div class="health-item-age-num">乳幼児</div>
+          </div>
+          <div class="health-item-body">
+            <div class="health-item-title">乳幼児歯科健診</div>
+            <p class="health-item-desc">1歳6か月・3歳児健診と連携し、乳幼児期からのむし歯予防・口腔ケア指導を行っています。</p>
+            <span class="health-item-tag">要予約</span>
+          </div>
+        </li>
+        <li class="health-item">
+          <div class="health-item-age">
+            <div class="health-item-age-num">妊婦</div>
+          </div>
+          <div class="health-item-body">
+            <div class="health-item-title">妊婦歯科健診</div>
+            <p class="health-item-desc">妊娠中の口腔ケアは母子の健康に直結します。歯周病・むし歯の予防・治療をサポートします。</p>
+            <span class="health-item-tag">登録医療機関</span>
+          </div>
+        </li>
+        <li class="health-item">
+          <div class="health-item-age">
+            <div class="health-item-age-num">相談</div>
+          </div>
+          <div class="health-item-body">
+            <div class="health-item-title">歯科相談・口腔保健指導</div>
+            <p class="health-item-desc">かかりつけ歯科医の紹介、オーラルフレイルに関する相談など、多摩市立健康センターでも対応しています。</p>
+            <span class="health-item-tag">042-635-8463</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- School Dental -->
+<section id="school" class="school-section school-sakura">
+  <div class="container">
+    <div class="school-layout">
+      <div>
+        <div class="section-eyebrow">学校歯科</div>
+        <h2 class="section-title">子どもたちの<br>歯と口の健康を守る</h2>
+        <p style="font-size:15px; color:var(--text-muted); line-height:2.1; margin-top:20px;">
+          多摩市学校歯科医会と教育委員会との協働のもと、市内の小中学校へ学校歯科医を派遣し、年1回の歯科健診・保健指導を行っています。
+        </p>
+        <p style="font-size:15px; color:var(--text-muted); line-height:2.1; margin-top:16px;">
+          また、毎年「歯・口の健康に関する図画・ポスターコンクール」を開催し、全優秀作品の展示と表彰式（市長・教育長によるプレゼンター）を実施しています。
+        </p>
+        <a href="#" style="display:inline-flex; align-items:center; gap:8px; margin-top:32px; font-size:13px; color:var(--teal); text-decoration:none; border-bottom:1px solid var(--teal); padding-bottom:2px;">
+          学校歯科部の詳細を見る →
+        </a>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <!-- 現サイトの学校歯科関連画像 -->
+        <div style="border-radius:8px; overflow:hidden; box-shadow:0 2px 16px rgba(30,92,50,0.1);">
+          <img src="https://www.tama-da.org/school/images/school_top.jpg"
+               alt="学校歯科保健活動"
+               onerror="this.closest('div').style.display='none'"
+               style="width:100%; display:block; max-height:200px; object-fit:cover;">
+        </div>
+        <div style="background:var(--white); border-radius:4px; padding:28px 32px; display:flex; gap:20px; align-items:flex-start; box-shadow:0 2px 12px rgba(26,45,79,0.06);">
+          <div style="font-size:28px; flex-shrink:0;">🎨</div>
+          <div>
+            <div style="font-size:15px; font-weight:500; color:var(--navy); margin-bottom:6px;">図画・ポスターコンクール</div>
+            <div style="font-size:13px; color:var(--text-muted); line-height:1.8;">多摩市小中学校による「歯・口の健康に関する図画・ポスターコンクール」を毎年開催。全優秀作品を展示・表彰しています。</div>
+          </div>
+        </div>
+        <div style="background:var(--white); border-radius:4px; padding:28px 32px; display:flex; gap:20px; align-items:flex-start; box-shadow:0 2px 12px rgba(26,45,79,0.06);">
+          <div style="font-size:28px; flex-shrink:0;">🦷</div>
+          <div>
+            <div style="font-size:15px; font-weight:500; color:var(--navy); margin-bottom:6px;">学校歯科健診・保健指導</div>
+            <div style="font-size:13px; color:var(--text-muted); line-height:1.8;">市内全小中学校に学校歯科医を配置し、年1回の健診と口腔衛生指導を実施。う蝕・歯周病の早期発見・予防を支援します。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Clinic Directory -->
+<section id="clinics" style="background:var(--white); padding:100px 0 0;" class="clinics-section">
+  <div class="container clinics-header-inner">
+    <div class="section-eyebrow">診療所案内</div>
+    <div class="clinics-title-row">
+      <h2 class="section-title" style="margin-bottom:0;">会員診療所一覧<span style="font-size:14px; font-weight:300; color:var(--text-muted); margin-left:16px;">全44名（会員紹介ページより）</span></h2>
+      <div class="clinics-contact-info">かかりつけ歯科医のご相談：多摩市健康推進課<br><strong>042-376-9149</strong></div>
+    </div>
+  </div>
+
+  <!-- Search & Filter Bar -->
+  <div class="clinic-filter-bar">
+    <div class="container clinic-filter-inner">
+      <!-- Search input -->
+      <div style="position:relative; flex:1; min-width:200px;">
+        <span style="position:absolute; left:14px; top:50%; transform:translateY(-50%); font-size:15px; pointer-events:none;">🔍</span>
+        <input type="text" id="clinic-search" placeholder="医院名・地区で検索…"
+          style="width:100%; padding:10px 14px 10px 40px; border:1px solid var(--border); border-radius:6px; font-size:16px; background:var(--white); font-family:'Noto Sans JP',sans-serif; outline:none;"
+          oninput="filterClinics()">
+      </div>
+      <!-- Area filter -->
+      <select id="area-filter" onchange="filterClinics()"
+        style="padding:10px 14px; border:1px solid var(--border); border-radius:6px; font-size:15px; background:var(--white); font-family:'Noto Sans JP',sans-serif; cursor:pointer; outline:none; min-width:160px;">
+        <option value="">地区：すべて</option>
+        <option value="聖蹟桜ヶ丘">聖蹟桜ヶ丘地区</option>
+        <option value="永山">永山地区</option>
+        <option value="多摩センター・唐木田">多摩センター・唐木田地区</option>
+      </select>
+      <!-- Feature filter removed - using area filter instead -->
+      <!-- Count -->
+      <div id="clinic-count" style="font-size:15px; color:var(--text-muted); white-space:nowrap; padding:0 4px;"></div>
+    </div>
+    <!-- 五十音フィルター -->
+    <div class="container clinic-kana-inner">
+      <div id="kana-filter" style="display:flex; gap:4px; flex-wrap:wrap;">
+        <button class="kana-btn active" data-kana="" onclick="setKana(this, '')">すべて</button>
+        <button class="kana-btn" data-kana="あ" onclick="setKana(this,'あ')">あ</button>
+        <button class="kana-btn" data-kana="か" onclick="setKana(this,'か')">か</button>
+        <button class="kana-btn" data-kana="さ" onclick="setKana(this,'さ')">さ</button>
+        <button class="kana-btn" data-kana="た" onclick="setKana(this,'た')">た</button>
+        <button class="kana-btn" data-kana="な" onclick="setKana(this,'な')">な</button>
+        <button class="kana-btn" data-kana="は" onclick="setKana(this,'は')">は</button>
+        <button class="kana-btn" data-kana="ま" onclick="setKana(this,'ま')">ま</button>
+        <button class="kana-btn" data-kana="や" onclick="setKana(this,'や')">や</button>
+        <button class="kana-btn" data-kana="ら" onclick="setKana(this,'ら')">ら</button>
+        <button class="kana-btn" data-kana="わ" onclick="setKana(this,'わ')">わ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Clinic Grid -->
+  <div class="container clinic-grid-inner">
+    <div id="clinic-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:16px;"></div>
+    <div id="clinic-empty" style="display:none; text-align:center; padding:60px 0; color:var(--text-muted);">
+      <div style="font-size:32px; margin-bottom:16px;">🦷</div>
+      <div style="font-size:15px;">該当する診療所が見つかりませんでした</div>
+    </div>
+  </div>
+</section>
+
+<style>
+.kana-btn {
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  border-radius: 4px;
+  font-size: 15px;
+  font-family: 'Noto Sans JP', sans-serif;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all 0.15s;
+}
+.kana-btn:hover { border-color: var(--teal); color: var(--teal); }
+.kana-btn.active { background: var(--navy); border-color: var(--navy); color: var(--white); }
+
+.clinic-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.clinic-card:hover {
+  border-color: var(--teal);
+  box-shadow: 0 4px 20px var(--shadow);
+  transform: translateY(-2px);
+}
+.clinic-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+.clinic-area-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  background: var(--teal-pale);
+  color: var(--teal);
+  font-size: 11px;
+  border-radius: 3px;
+  margin-bottom: 14px;
+}
+.clinic-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 4px;
+}
+.clinic-info-icon { flex-shrink: 0; margin-top: 1px; }
+.clinic-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.clinic-tag {
+  padding: 3px 9px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.clinic-tel-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: var(--cream);
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--navy);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: background 0.15s;
+}
+.clinic-tel-link:hover { background: var(--teal-pale); }
+@media (max-width: 600px) {
+  #clinic-grid { grid-template-columns: 1fr; }
+  #clinics > .container, #clinics > div > .container { padding-left: 18px; padding-right: 18px; }
+  #clinics > div[style*="sticky"] { padding: 14px 18px; top: 56px; }
+}
+</style>
+
+<script>
+// ─── 実データ（多摩歯科医会 会員紹介ページより） ───
+// 医師名（五十音順）・診療所名・住所・電話番号
+const CLINICS = [
+  // あ行
+  { name:"浅井歯科医院",              doctor:"浅井 英夫",  kana:"あ", area:"聖蹟桜ヶ丘", addr:"関戸2-39-5-202",                          tel:"042-337-0211" },
+  { name:"あだち歯科クリニック",       doctor:"足立 徹",   kana:"あ", area:"永山",       addr:"貝取1508-4",                              tel:"042-376-8001" },
+  { name:"新井歯科医院",              doctor:"新井 真澄",  kana:"あ", area:"永山",       addr:"乞田1212-7",                              tel:"042-337-7377" },
+  { name:"有間矯正歯科クリニック",     doctor:"有間 英生",  kana:"あ", area:"多摩センター・唐木田", addr:"落合1-46-2",                  tel:"042-374-8211" },
+  { name:"せきど矯正歯科",             doctor:"安香 譲治",  kana:"あ", area:"聖蹟桜ヶ丘", addr:"関戸1-11-1 京王聖蹟桜ヶ丘S.C A館2F",    tel:"042-337-2525" },
+  { name:"安藤歯科医院",              doctor:"安藤 明徳",  kana:"あ", area:"聖蹟桜ヶ丘", addr:"桜ヶ丘4-32-1",                           tel:"042-375-8145" },
+  // い行
+  { name:"島田療育センター",           doctor:"稲田 穰",   kana:"い", area:"その他",     addr:"中沢1-31-1",                              tel:"042-374-2071" },
+  { name:"聖蹟歯科医院",              doctor:"岩堀 一之・俊雄", kana:"い", area:"聖蹟桜ヶ丘", addr:"桜ヶ丘4-35-3 ライフイン聖蹟1階",  tel:"042-374-5020" },
+  // う行
+  { name:"おうちで歯科",              doctor:"内宮 洋一郎", kana:"う", area:"多摩センター・唐木田", addr:"鶴牧2-9-15-302",             tel:"042-311-8288" },
+  // お行
+  { name:"大蔵歯科医院",              doctor:"大蔵 宏基",  kana:"お", area:"永山",       addr:"馬引沢2-14-17 ソレーユ1階",              tel:"042-371-8418" },
+  { name:"桜ヶ丘アール歯科",           doctor:"大竹 伯房",  kana:"お", area:"聖蹟桜ヶ丘", addr:"関戸1-1-5 ザ・スクエア2階",              tel:"042-376-0924" },
+  { name:"オナガ歯科医院",             doctor:"翁長 誠",   kana:"お", area:"永山",       addr:"馬引沢1-17-9",                            tel:"042-375-8011" },
+  // か行
+  { name:"かみむら歯科医院",           doctor:"上村 智一",  kana:"か", area:"多摩センター・唐木田", addr:"鶴牧2-23-14 パワーク唐木田101", tel:"042-339-8241" },
+  { name:"亀山歯科医院",              doctor:"亀山 孝将",  kana:"か", area:"永山",       addr:"貝取1-17-3 ルミネ永山第2-101",           tel:"042-376-1184" },
+  { name:"川崎歯科医院",              doctor:"川崎 和三",  kana:"か", area:"永山",       addr:"諏訪1-5-9 ベルメゾン101",                tel:"042-337-5252" },
+  // き行
+  { name:"プリンスビル歯科",           doctor:"北村 新",   kana:"き", area:"多摩センター・唐木田", addr:"愛宕4-23-3 プリンスビル1F",   tel:"042-337-0082" },
+  // く行
+  { name:"くぼ歯科医院",              doctor:"久保 雅幸",  kana:"く", area:"永山",       addr:"貝取1-50-25",                            tel:"042-338-7620" },
+  // さ行
+  { name:"和田歯科医院",              doctor:"齋藤 康樹",  kana:"さ", area:"聖蹟桜ヶ丘", addr:"和田1468",                               tel:"042-339-7000" },
+  { name:"ささき矯正歯科クリニック",   doctor:"佐々木 京三", kana:"さ", area:"多摩センター・唐木田", addr:"落合1-5-1 グリムコートビル2F 202", tel:"042-400-7860" },
+  // し行
+  { name:"白井歯科医院",              doctor:"白井 弘三",  kana:"し", area:"永山",       addr:"永山1-8-17 ボヌール永山201号",            tel:"042-373-1210" },
+  // す行
+  { name:"すぎはら歯科",              doctor:"杉原 秀孝",  kana:"す", area:"多摩センター・唐木田", addr:"鶴牧3-2 ブリリア多摩センター1階1-A", tel:"042-339-6467" },
+  { name:"多摩歯科医院",              doctor:"鈴木 康之",  kana:"す", area:"聖蹟桜ヶ丘", addr:"一ノ宮4-1-1 Nビル2F",                    tel:"042-374-3407" },
+  // せ行
+  { name:"聖蹟とよしま歯科",           doctor:"豊嶋 悠輔",  kana:"せ", area:"聖蹟桜ヶ丘", addr:"関戸1-7-5 京王聖蹟桜ヶ丘S.C C館1F",    tel:"042-337-2720" },
+  // そ行
+  { name:"永山駅前歯科クリニック",     doctor:"宗田 利道",  kana:"そ", area:"永山",       addr:"永山1-18-2 小田急マルシェ永山",           tel:"042-400-6768" },
+  // た行
+  { name:"高木歯科医院",              doctor:"高木 佳辰",  kana:"た", area:"永山",       addr:"貝取4-2-1-103",                          tel:"042-375-8891" },
+  { name:"九重歯科多摩センター",       doctor:"高橋 誠治",  kana:"た", area:"多摩センター・唐木田", addr:"落合1-9-2 黒田ビル3F",        tel:"042-373-5981" },
+  { name:"田中歯科医院",              doctor:"田中 亜季郎", kana:"た", area:"多摩センター・唐木田", addr:"鶴牧1-24-1 新都市センタービル3F", tel:"042-373-0511" },
+  { name:"多摩キッズデンタルパーク",   doctor:"田中 絵里",  kana:"た", area:"多摩センター・唐木田", addr:"落合1-35 ライオンズプラザ多摩センター2F", tel:"042-373-2123" },
+  { name:"田中歯科医院第2診療室",      doctor:"田中歯科医院第2診療室", kana:"た", area:"多摩センター・唐木田", addr:"落合1-35 ライオンズプラザ多摩センター3F", tel:"042-337-6480" },
+  // つ行
+  { name:"みゆき歯科クリニック",       doctor:"辻野 正久",  kana:"つ", area:"聖蹟桜ヶ丘", addr:"関戸5-15-32",                            tel:"042-339-8251" },
+  // と行
+  { name:"聖蹟とよしま歯科",           doctor:"豊嶋 悠輔",  kana:"と", area:"聖蹟桜ヶ丘", addr:"関戸1-7-5 京王聖蹟桜ヶ丘S.C C館1F",    tel:"042-337-2720" },
+  // は行
+  { name:"橋口歯科医院",              doctor:"橋口 司・洋三", kana:"は", area:"多摩センター・唐木田", addr:"豊ヶ丘5-8-2",             tel:"042-376-2231" },
+  { name:"はつの歯科医院",             doctor:"初野 有人",  kana:"は", area:"多摩センター・唐木田", addr:"鶴牧6-8-16",               tel:"042-316-9551" },
+  { name:"レタル歯科クリニック",       doctor:"藤田 恭平",  kana:"ふ", area:"永山",       addr:"乞田1426 KTAビル302",                    tel:"042-374-0326" },
+  { name:"クロスガーデンデンタルクリニック", doctor:"藤原 勳", kana:"ふ", area:"多摩センター・唐木田", addr:"落合2-33 クロスガーデン多摩3F", tel:"042-313-8418" },
+  // ま行
+  { name:"馬谷原歯科医院",             doctor:"馬谷原 宜彦", kana:"ま", area:"聖蹟桜ヶ丘", addr:"関戸4-23-1 関戸ビル2F",               tel:"042-374-9589" },
+  { name:"溝口歯科医院",              doctor:"溝口 孝三",  kana:"み", area:"多摩センター・唐木田", addr:"唐木田1-1-7 プラザ唐木田1F", tel:"042-356-2555" },
+  { name:"落合小児歯科医院",           doctor:"宮川 慎二郎", kana:"み", area:"多摩センター・唐木田", addr:"鶴牧1-1-6-207",          tel:"042-338-5533" },
+  // や行
+  { name:"安原歯科医院",              doctor:"安原 祐之",  kana:"や", area:"多摩センター・唐木田", addr:"鶴牧1-23 朝日生命多摩本社ビル1F", tel:"042-337-5766" },
+  { name:"やまな歯科クリニック",       doctor:"山名 慶之",  kana:"や", area:"永山",       addr:"永山4-2-3-107",                          tel:"042-339-3619" },
+  { name:"山崎歯科医院",              doctor:"山崎 潤也",  kana:"や", area:"多摩センター・唐木田", addr:"落合6-11-17",              tel:"042-373-7100" },
+  // ゆ行
+  { name:"由井歯科医院",              doctor:"由井 眞司",  kana:"ゆ", area:"聖蹟桜ヶ丘", addr:"桜ヶ丘4-2-5",                           tel:"042-375-6443" },
+  { name:"ゆぎ歯科医院",              doctor:"由木 邦夫",  kana:"ゆ", area:"多摩センター・唐木田", addr:"落合3-8-7 多摩パークハイツ2F", tel:"042-376-8088" },
+  // よ行
+  { name:"横田歯科クリニック",         doctor:"横田 達哉",  kana:"よ", area:"多摩センター・唐木田", addr:"鶴牧2-25-16 ルースト唐木田", tel:"042-319-3410" },
+];
+
+const KANA_MAP = {
+  あ: ["あ","い","う","え","お"],
+  か: ["か","き","く","け","こ"],
+  さ: ["さ","し","す","せ","そ"],
+  た: ["た","ち","つ","て","と"],
+  な: ["な","に","ぬ","ね","の"],
+  は: ["は","ひ","ふ","へ","ほ"],
+  ま: ["ま","み","む","め","も"],
+  や: ["や","ゆ","よ"],
+  ら: ["ら","り","る","れ","ろ"],
+  わ: ["わ","を","ん"],
+};
+
+let currentKana = '';
+
+function setKana(btn, kana) {
+  document.querySelectorAll('.kana-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentKana = kana;
+  filterClinics();
+}
+
+function filterClinics() {
+  const search = document.getElementById('clinic-search').value.trim().toLowerCase();
+  const area   = document.getElementById('area-filter').value;
+
+  const filtered = CLINICS.filter(c => {
+    const matchSearch = !search || c.name.toLowerCase().includes(search) || c.addr.toLowerCase().includes(search) || c.area.toLowerCase().includes(search);
+    const matchArea   = !area || c.area === area;
+    const matchKana   = !currentKana || (KANA_MAP[currentKana] || [currentKana]).includes(c.kana);
+    return matchSearch && matchArea && matchKana;
+  });
+
+  renderClinics(filtered);
+  document.getElementById('clinic-count').textContent = filtered.length + '件';
+}
+
+function renderClinics(list) {
+  const grid  = document.getElementById('clinic-grid');
+  const empty = document.getElementById('clinic-empty');
+  if (list.length === 0) { grid.innerHTML = ''; empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  grid.innerHTML = list.map(c => `
+    <div class="clinic-card">
+      <div class="clinic-name">${c.name}</div>
+      <div style="font-size:14px; color:var(--text-muted); margin-bottom:10px;">院長：${c.doctor}</div>
+      <span class="clinic-area-badge">📍 ${c.area}地区</span>
+      <div class="clinic-info-row"><span class="clinic-info-icon">🏠</span><span>多摩市${c.addr}</span></div>
+      <a href="tel:${c.tel.replace(/-/g,'')}" class="clinic-tel-link">📞 ${c.tel}</a>
+    </div>
+  `).join('');
+}
+
+// 初期表示
+filterClinics();
+document.getElementById('clinic-count').textContent = CLINICS.length + '件';
+</script>
+
+<!-- News -->
+<section class="news-section" id="news">
+  <div class="container">
+    <div class="news-header">
+      <div>
+        <div class="section-eyebrow">お知らせ</div>
+        <h2 class="section-title">最新情報</h2>
+      </div>
+      <a href="#" class="view-all-link">すべて見る →</a>
+    </div>
+    <div class="news-list">
+      <a href="#" class="news-item">
+        <div class="news-meta">
+          <span class="news-date">2025.05.21</span>
+          <span class="news-cat lecture">講座</span>
+        </div>
+        <div class="news-title">2025年度 お口の健幸講座「身元確認につながる歯の役割（6月8日開催）」のご案内</div>
+      </a>
+      <a href="#" class="news-item">
+        <div class="news-meta">
+          <span class="news-date">2024.10.01</span>
+          <span class="news-cat lecture">講座</span>
+        </div>
+        <div class="news-title">2024年度 お口の健幸講座 パンチ佐藤さん講演「元気配達人からのメッセージ」（10月6日開催）のご案内</div>
+      </a>
+      <a href="#" class="news-item">
+        <div class="news-meta">
+          <span class="news-date">2023.10.23</span>
+          <span class="news-cat">報告</span>
+        </div>
+        <div class="news-title">2023年度「お口の健幸講座」健康長寿への第一歩「オーラルフレイルとは」を開催しました</div>
+      </a>
+      <a href="#" class="news-item">
+        <div class="news-meta">
+          <span class="news-date">2022.12.18</span>
+          <span class="news-cat">資料</span>
+        </div>
+        <div class="news-title">「お口の健幸講座 健康長寿への第一歩「オーラルフレイルとは」」を掲載しました</div>
+      </a>
+      <a href="#" class="news-item">
+        <div class="news-meta">
+          <span class="news-date">2022.11.28</span>
+          <span class="news-cat">報告</span>
+        </div>
+        <div class="news-title">多摩市市政施行50周年記念 お口の健幸講座「人生100年時代の地域包括ケア〜最後まで暮らし続ける地域をめざして〜」が行われました</div>
+      </a>
+    </div>
+
+    <!-- お口の健幸講座 資料カード -->
+    <div style="margin-top:40px; background:var(--teal-pale); border-radius:8px; padding:28px 32px; display:flex; gap:24px; align-items:center; flex-wrap:wrap;">
+      <div style="font-size:48px; flex-shrink:0;">📋</div>
+      <div style="flex:1; min-width:200px;">
+        <div style="font-size:12px; color:var(--teal); letter-spacing:0.12em; margin-bottom:8px; text-transform:uppercase;">講座資料</div>
+        <div style="font-family:'Noto Serif JP',serif; font-size:18px; font-weight:400; color:var(--navy); margin-bottom:8px; line-height:1.5;">お口の健幸講座<br>「健康長寿への第一歩 オーラルフレイルとは」</div>
+        <p style="font-size:14px; color:var(--text-muted); line-height:1.9;">口腔機能の低下（オーラルフレイル）と健康寿命の関係をわかりやすく解説した講座資料です（PDF・8ページ）。</p>
+      </div>
+      <a href="https://www.tama-da.org/topics/image/20221218/20221218_oral-frail.pdf" 
+         target="_blank" rel="noopener"
+         style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--navy);color:white;text-decoration:none;border-radius:6px;font-size:15px;font-weight:500;white-space:nowrap;flex-shrink:0;">
+        📄 PDFを開く
+      </a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <div class="footer-logo-mark">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C9 2 7 4 7 6.5c0 1 .3 2 .5 2.5L6 18c-.2 1.5.8 3 2 3s2-1 2.5-2.5L12 16l1.5 2.5C14 20 15 21 16 21s2.2-1.5 2-3l-1.5-9C16.7 8.5 17 7.5 17 6.5 17 4 15 2 12 2z"/>
+          </svg>
+        </div>
+        <span class="footer-logo-text">多摩歯科医会</span>
+      </div>
+      <p class="footer-brand-text">
+        八南歯科医師会多摩支部として、多摩市内の歯科医師57名が地域医療・歯科保健の向上に取り組んでいます。
+      </p>
+      <div class="footer-address">
+        〒206-0011 東京都多摩市関戸4-19-5<br>
+        多摩市立健康センター内<br>
+        Tel: 042-635-8463（八南歯科医師会）
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">事業内容</div>
+      <ul class="footer-links">
+        <li><a href="#emergency">休日応急歯科診療</a></li>
+        <li><a href="#health">歯周病検診</a></li>
+        <li><a href="#health">後期高齢者歯科健康診査</a></li>
+        <li><a href="#school">学校歯科保健</a></li>
+        <li><a href="#">障害者（児）歯科診療</a></li>
+        <li><a href="#">在宅・訪問歯科</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">情報</div>
+      <ul class="footer-links">
+        <li><a href="#about">多摩歯科医会について</a></li>
+        <li><a href="#clinics">診療所紹介</a></li>
+        <li><a href="#news">お知らせ・トピックス</a></li>
+        <li><a href="#">お口の健幸講座</a></li>
+        <li><a href="#">アクセス</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">関連リンク</div>
+      <ul class="footer-links">
+        <li><a href="https://www.hachinan-dental.or.jp/" target="_blank" rel="noopener">八南歯科医師会</a></li>
+        <li><a href="https://www.jda.or.jp/" target="_blank" rel="noopener">日本歯科医師会</a></li>
+        <li><a href="https://www.tasd.or.jp/" target="_blank" rel="noopener">多摩市学校歯科医会</a></li>
+        <li><a href="https://www.city.tama.lg.jp/" target="_blank" rel="noopener">多摩市公式サイト</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>Copyright &copy; 多摩歯科医会（八南歯科医師会多摩支部）All Rights Reserved.</span>
+    <div class="footer-bottom-links">
+      <a href="#">サイトマップ</a>
+      <a href="#">プライバシーポリシー</a>
+      <a href="#">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ナビ高さに応じてnotice-bannerのmargin-topを調整
+function adjustNoticeTop() {
+  const nav = document.querySelector('nav');
+  const banner = document.getElementById('notice-banner');
+  if (nav && banner) {
+    banner.style.marginTop = nav.offsetHeight + 'px';
+  }
+}
+adjustNoticeTop();
+window.addEventListener('resize', adjustNoticeTop);
+const hamburger = document.getElementById('hamburger');
+const drawer = document.getElementById('mobile-drawer');
+
+hamburger.addEventListener('click', () => {
+  const isOpen = drawer.classList.toggle('open');
+  hamburger.classList.toggle('open', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+function closeDrawer() {
+  drawer.classList.remove('open');
+  hamburger.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Close drawer on backdrop click
+drawer.addEventListener('click', e => {
+  if (e.target === drawer) closeDrawer();
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id === '#') return;
+    const el = document.querySelector(id);
+    if (el) {
+      e.preventDefault();
+      closeDrawer();
+      setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 10);
+    }
+  });
+});
+
+// Hide FAB when emergency section is visible
+const fab = document.querySelector('.mobile-fab');
+if (fab) {
+  const emergencySection = document.getElementById('emergency');
+  const fabObserver = new IntersectionObserver(entries => {
+    fab.style.opacity = entries[0].isIntersecting ? '0' : '1';
+    fab.style.pointerEvents = entries[0].isIntersecting ? 'none' : 'auto';
+  }, { threshold: 0.3 });
+  if (emergencySection) fabObserver.observe(emergencySection);
+}
+
+// Fade in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.service-card, .health-item, .news-item, .about-stat').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
